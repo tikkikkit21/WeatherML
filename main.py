@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import joblib
 
 model = joblib.load('models/best.model')
@@ -30,4 +29,23 @@ def predict(temp: int, feels_like: int, humidity: float, uv: int, wind: int, gus
 
 
 if __name__ == '__main__':
-    predict(73, 70, 0.5, 5, 4, 6, 'fall')
+    print('Welcome to WeatherML!')
+
+    temp = input('What is the actual temperature (°F)? ')
+    feels_like = input('What is the feels like temperature (°F)? ')
+    humidity = input('What is the humidity (%)? ')
+    uv = input('What is the UV? ')
+    wind = input('What is the wind speed (mph)? ')
+    gusts = input('What is the gusts speed (mph)? ')
+    season = input('What is the season? ')
+    
+    print()
+    predict(
+        int(temp),
+        int(feels_like),
+        float(humidity),
+        int(uv),
+        int(wind),
+        int(gusts),
+        season
+    )
